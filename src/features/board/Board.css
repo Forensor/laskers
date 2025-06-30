@@ -1,0 +1,6 @@
+.board {
+    background-image: url("../../assets/board.svg");
+    background-size: cover;
+    position: relative;
+    cursor: pointer;
+}

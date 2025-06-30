@@ -1,0 +1,20 @@
+.white.private {
+    background-image: url("../../assets/white_private.svg");
+}
+
+.black.private {
+    background-image: url("../../assets/black_private.svg");
+}
+
+.white.officer {
+    background-image: url("../../assets/white_officer.svg");
+}
+
+.black.officer {
+    background-image: url("../../assets/black_officer.svg");
+}
+
+.counter {
+    position: absolute;
+    background-size: cover;
+}
