@@ -1,8 +1,8 @@
-import type { Counter } from "../../lib/counter";
+import type * as Counter from "../../lib/counter";
 import "./Counter.css";
 
 type Config = { size: number; positionOnStack: number };
-type Props = { counter: Counter; config: Config };
+type Props = { counter: Counter.Counter; config: Config };
 
 export const DEFAULT_SIZE = 70;
 

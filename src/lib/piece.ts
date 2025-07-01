@@ -1,6 +1,6 @@
 import * as Counter from "./counter";
-import type { Role } from "./role";
-import type { Team } from "./team";
+import type * as Role from "./role";
+import type * as Team from "./team";
 
 /**
  * A stack of {@link Counter}s.
@@ -10,19 +10,19 @@ import type { Team } from "./team";
  */
 export type Piece = [Counter.Counter, ...Counter.Counter[]];
 
-export function role(piece: Piece): Role {
+export function getRole(piece: Piece): Role.Role {
     return piece[0].role;
 }
 
-export function team(piece: Piece): Team {
+export function getTeam(piece: Piece): Team.Team {
     return piece[0].team;
 }
 
-export function convertToRole([topCounter, ...rest]: Piece, role: Role): Piece {
+export function convertToRole([topCounter, ...rest]: Piece, role: Role.Role): Piece {
     return [{ ...topCounter, role }, ...rest];
 }
 
-export function convertToTeam([topCounter, ...rest]: Piece, team: Team): Piece {
+export function convertToTeam([topCounter, ...rest]: Piece, team: Team.Team): Piece {
     return [{ ...topCounter, team }, ...rest];
 }
 

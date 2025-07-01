@@ -1,12 +1,16 @@
-import type { Coord } from "../../lib/coord";
-import type { Counter } from "../../lib/counter";
-import type { Piece } from "../../lib/piece";
-import { CounterComponent } from "./Counter";
+import type * as Coord from "../../lib/coord";
+import type * as Counter from "../../lib/counter";
+import type * as Piece from "../../lib/piece";
+import * as CounterComponent from "./Counter";
 import "./Piece.css";
-import type { Orientation } from "../../lib/orientation";
+import type * as Orientation from "../../lib/orientation";
 
-type Config = { counterSize: number; coord: Coord; orientation: Orientation };
-type Props = { piece: Piece; config: Config };
+type Config = {
+    counterSize: number;
+    coord: Coord.Coord;
+    orientation: Orientation.Orientation;
+};
+type Props = { piece: Piece.Piece; config: Config };
 
 /**
  * The {@link Piece} view. It renders the {@link Counter}s stack on a single square.
@@ -32,10 +36,10 @@ export const PieceComponent = (props: Props) => {
                 left: left
             }}
         >
-            {props.piece.map((counter: Counter, position: number) => {
+            {props.piece.map((counter: Counter.Counter, position: number) => {
                 const positionOnStack = props.piece.length - 1 - position;
                 return (
-                    <CounterComponent
+                    <CounterComponent.CounterComponent
                         counter={counter}
                         config={{ size: props.config.counterSize, positionOnStack }}
                         key={positionOnStack}
@@ -51,13 +55,15 @@ function getTopAndLeftValues({
     orientation,
     counterSize
 }: {
-    coord: Coord;
-    orientation: Orientation;
+    coord: Coord.Coord;
+    orientation: Orientation.Orientation;
     counterSize: number;
 }): { top: number; left: number } {
     // We get the values that will move the piece to the right position over the board.
     const coordOrientationToValuesMap: {
-        [key in Orientation]: { [key in Coord]: { top: number; left: number } };
+        [key in Orientation.Orientation]: {
+            [key in Coord.Coord]: { top: number; left: number };
+        };
     } = {
         Whiteside: {
             S1: {

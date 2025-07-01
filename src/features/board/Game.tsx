@@ -1,9 +1,9 @@
 import "./Counter.css";
-import { BoardComponent } from "./Board";
+import * as BoardComponent from "./Board";
 import * as Game from "../../lib/game";
-import type { Orientation } from "../../lib/orientation";
+import type * as Orientation from "../../lib/orientation";
 
-type Config = { counterSize: number; orientation: Orientation };
+type Config = { counterSize: number; orientation: Orientation.Orientation };
 type Props = { game: Game.Game; config: Config };
 
 export const GameComponent = (props: Props) => {
@@ -11,7 +11,7 @@ export const GameComponent = (props: Props) => {
 
     return (
         <div className={className}>
-            <BoardComponent
+            <BoardComponent.BoardComponent
                 board={props.game.board}
                 config={{
                     counterSize: props.config.counterSize,

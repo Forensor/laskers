@@ -1,0 +1,8 @@
+.move-destination {
+    position: absolute;
+    background-image: radial-gradient(#14551e80 19%, #0000 20%);
+}
+
+.move-destination:hover {
+    background-color: #14551e4d;
+}

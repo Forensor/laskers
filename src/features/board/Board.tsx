@@ -1,12 +1,10 @@
-import type { Board } from "../../lib/board";
-import type { Coord } from "../../lib/coord";
-import type { Orientation } from "../../lib/orientation";
-import type { Piece } from "../../lib/piece";
+import type * as Board from "../../lib/board";
+import type * as Orientation from "../../lib/orientation";
 import "./Board.css";
-import { PieceComponent } from "./Piece";
+import * as PieceComponent from "./Piece";
 
-type Config = { counterSize: number; orientation: Orientation };
-type Props = { board: Board; config: Config };
+type Config = { counterSize: number; orientation: Orientation.Orientation };
+type Props = { board: Board.Board; config: Config };
 
 /**
  * The {@link Board} view. It renders the {@link Piece}s over the board and allows the
@@ -24,12 +22,12 @@ export const BoardComponent = (props: Props) => {
     const boardSize = props.config.counterSize * 7;
     const className = `board ${props.config.orientation.toLowerCase()}`;
     // Convert the board `Map` to an `Array` to be able to map over it
-    const board: [Coord, Piece][] = Array.from(props.board);
+    const board = Array.from(props.board);
     return (
         <div className={className} style={{ height: boardSize, width: boardSize }}>
             {board.map(([coord, piece]) => {
                 return (
-                    <PieceComponent
+                    <PieceComponent.PieceComponent
                         piece={piece}
                         config={{
                             counterSize: props.config.counterSize,
